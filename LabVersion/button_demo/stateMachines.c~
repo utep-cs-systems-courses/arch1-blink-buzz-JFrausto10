@@ -1,0 +1,16 @@
+#include "led.h"
+#include "switches.h"
+
+void switchSM(){
+  if(switch_state_down1) red_on = 1;
+  else red_on = 0;
+  if(switch_state_down2) green_on = 1;
+  else green_on = 0;
+
+  if(switch_state_down3 && !switch_state_down1) buzzer_set_period(2000);
+  else if (switch_state_down3 && switch_state_down1) buzzer_set_period(1000);
+  else buzzer_set_period(0);
+  
+  led_changed = 1;
+  led_update();
+}  
