@@ -11,13 +11,13 @@ AS              = msp430-elf-as
 all: button.elf 
 
 #additional rules for files
-button.elf: ${COMMON_OBJECTS} p1_interrupt_handler.o led.o switches.o stateMachines.o buzzer.o buttonMain.o ../lib/libTimer.a
+button.elf: ${COMMON_OBJECTS} p1_interrupt_handler.o led.o wdInterruptHandler.o switches.o stateMachines.o buzzer.o buttonMain.o ../lib/libTimer.a
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 
 load: button.elf
 	msp430loader.sh button.elf
 
-stateMachines.o: led.h switches.h
+stateMachines.o: led.h switches.h stateMachines.h
 
 buzzer.o: buzzer.h
 
