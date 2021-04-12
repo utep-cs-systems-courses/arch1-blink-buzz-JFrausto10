@@ -30,10 +30,8 @@ void switchSM(){
 void stateMachine1(){
    static char state = 0;
    switch(state){
-   case 0: red_on = 1; green_on = 0; state++;led_update(); break;
-   case 1: green_on = 1; red_on = 0; state = 0;led_update(); break;
+   case 0: red_on = 1; green_on = 0; state++; break;
+   case 1: green_on = 1; red_on = 0; state = 0; break;
    }
-   led_changed = 1;
-   led_update();
 }
 
