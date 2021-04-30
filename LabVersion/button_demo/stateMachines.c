@@ -1,8 +1,10 @@
+
 #include "led.h"
 #include "switches.h"
 #include "stateMachines.h"
+#include "buzzer.h"
 
-char tempo;
+char tempo = 150;
 
 void switchSM(){  
   if(switch_state_down1 && switch_state_down2){
